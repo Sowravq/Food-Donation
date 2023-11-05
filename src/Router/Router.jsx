@@ -9,6 +9,7 @@ import AddFood from "../Pages/AddFood/AddFood";
 import ManageMyFoods from "../Pages/ManageMyFoods/ManageMyFoods";
 import MyFoodRequest from "../Pages/MyFoodRequest/MyFoodRequest";
 import Login from "../Pages/Login/Login";
+import SingUp from "../Pages/SingUp/SingUp";
    
 
   const router = createBrowserRouter([
@@ -39,6 +40,10 @@ import Login from "../Pages/Login/Login";
       {
         path:'/login',
         element:<Login></Login>
+      },
+      {
+        path:'/singUp',
+        element:<SingUp></SingUp>
       }
     ]
     },

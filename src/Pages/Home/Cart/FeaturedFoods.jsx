@@ -7,7 +7,7 @@ const FeaturedFoods = () => {
 
             <div className="text-center">
                 <p className="text-4xl md:text-5xl lg:text-6xl font-bold">Featured Foods</p>
-                <p className="border-b-2 max-w-[400px] mx-auto mt-5 mb-5"></p>
+                <p className="border-b-2 max-w-[500px] mx-auto mt-5 mb-5"></p>
             </div>
 
 
