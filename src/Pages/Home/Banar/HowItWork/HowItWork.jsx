@@ -11,7 +11,7 @@ const HowItWork = () => {
              <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-5 mt-16">
               
                <div className="mt-20">
-                <img className="h-[300px] w-full object-cover  rounded-tr-full rounded-tl-full lg:rounded-tr-full" src="https://i.ibb.co/W2yKP1J/istockphoto-1225535094-612x612.jpg" alt="" />
+                <img className="h-[300px] w-full object-cover  rounded-tr-full rounded-tl-full " src="https://i.ibb.co/W2yKP1J/istockphoto-1225535094-612x612.jpg" alt="" />
                 <div className="mt-4 hover:bg-[#adc930] duration-1000 text-center p-7">
                     <p className="text-2xl mt-4 font-semibold">Food is Donated</p>
                     <p className="mt-5 mb-5">Farms, restaurants, cafeterias, hotels, stadiums, and grocery stores post excess food in under a minute on the Waste No Food app.</p>
@@ -27,7 +27,7 @@ const HowItWork = () => {
                </div>
               
                <div className="mt-20">
-                <img className="h-[300px]  w-full object-cover rounded-tr-full rounded-tl-full lg:rounded-tl-full" src="https://i.ibb.co/Qf1FmpH/istockphoto-472165353-612x612.jpg" alt="" />
+                <img className="h-[300px]  w-full object-cover rounded-tr-full rounded-tl-full " src="https://i.ibb.co/Qf1FmpH/istockphoto-472165353-612x612.jpg" alt="" />
                 <div className="mt-4 hover:bg-[#adc930] duration-1000 text-center p-7">
                     <p className="text-2xl mt-4 font-semibold">Food Is Picked Up</p>
                     <p className="mt-5 mb-5">The charity, or a network of volunteers, picks up the food and serves it to hungry people.</p>
