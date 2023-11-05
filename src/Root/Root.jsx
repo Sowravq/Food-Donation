@@ -1,5 +1,6 @@
 import { Outlet } from "react-router-dom";
 import Navbar from "../sharePage/Navbar";
+import Footer from "../sharePage/Footer";
 
  
 const Root = () => {
@@ -7,6 +8,7 @@ const Root = () => {
         <div className="font-Noto-Serif ">
             <Navbar></Navbar>
             <Outlet></Outlet>
+            <Footer></Footer>
         </div>
     );
 };

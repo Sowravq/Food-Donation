@@ -29,8 +29,6 @@ import Slider from "./Slider";
        
            <div className="relative  px-4 mt-36">
              <Slider></Slider>
-       
-          
            </div>
          
          </div>
