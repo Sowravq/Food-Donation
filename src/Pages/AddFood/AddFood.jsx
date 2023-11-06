@@ -1,10 +1,11 @@
 import { useContext } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
+import Swal from "sweetalert2";
 
  
 
 const AddFood = () => {
-    const {information} = useContext(AuthContext)
+    const {information} = useContext(AuthContext);
 const handleAddFood = (event)=>{
     event.preventDefault();
     const form = event.target;
@@ -21,6 +22,28 @@ const handleAddFood = (event)=>{
 
      const foodDetails = {name,email, donarImg, foodName,photoUrl,foodQuantity,location,expiredDate,foodStatus,additionalNotes};
      console.log(foodDetails);
+
+
+     fetch('http://localhost:4000/foods',{
+      method:"POST",
+      headers:{
+        "content-type":"application/json"
+      },
+      body:JSON.stringify(foodDetails)
+     })
+     .then(res=>res.json())
+     .then(data=>{
+      console.log(data);
+      if(data.insertedId){
+        Swal.fire({
+        icon: "success",
+        title: "success",
+        text: "Food add successful!",
+        footer: '<a href="#">Why do I have this issue?</a>'
+      });
+      }
+      
+     })
 }
 
     return (
@@ -30,7 +53,7 @@ const handleAddFood = (event)=>{
              <form onSubmit={handleAddFood} className="max-w-4xl mx-auto mt-14">
 
                <div className="flex flex-col lg:flex-row items-center gap-5">
-                <input className="w-full py-2 px-3 shadow-lg bg-red-100" defaultValue={information.displayName} type="text" name="name"   id="" />
+                <input className="w-full py-2 px-3 shadow-lg bg-red-100" defaultValue={information.displayName}type="text" name="name"   id="" />
                 <input className="w-full py-2 px-3 shadow-lg bg-red-100" type="email" name="email" defaultValue={information.email} id="" />
                 <input className="w-full py-2 px-3 shadow-lg bg-red-100" defaultValue={information.photoURL} type="text" name="donarImg"   id="" />
                  

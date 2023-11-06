@@ -1,9 +1,30 @@
-import { MdOutlineDateRange } from 'react-icons/md';
-import { GrLocation } from 'react-icons/gr';
-import { AiOutlineArrowRight } from 'react-icons/ai';
+ 
+import { useEffect, useState } from 'react';
+import Food from './Food/Food';
+import { Link } from 'react-router-dom';
+ 
+ 
 const FeaturedFoods = () => {
+    const[foods,setFoods] = useState();
+   
+    useEffect(()=>{
+        fetch('http://localhost:4000/foods')
+        .then(res=>res.json())
+        .then(data=>{
+            const sortby = data?.sort((a,b)=>b.foodQuantity - a.foodQuantity);
+            setFoods(sortby.slice(0,6))
+            
+        })
+    },[])
+
+    console.log(foods);
+    
+    
     return (
+        
         <div className="mt-16 ">
+             
+     
 
             <div className="text-center">
                 <p className="text-4xl md:text-5xl lg:text-6xl font-bold">Featured Foods</p>
@@ -11,63 +32,20 @@ const FeaturedFoods = () => {
             </div>
 
 
-            <div className="mt-20 max-w-7xl mx-auto">
+            <div className="mt-20 max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
 
-
-                <div className="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-                    <a href="#">
-                        <img className="rounded-t-lg" src="https://i.ibb.co/5hWBpSj/pexels-ash-376464.jpg" alt="" />
-                    </a>
-                    <div className="p-5">
-                        <a href="#">
-                            <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Burger</h5>
-                        </a>
-                        <div className='flex justify-between items-center'>
-                            
-                          <div className='flex items-center gap-2'>
-                            <p className='text-red-500 font-semibold'>Exp :</p>
-                            <MdOutlineDateRange ></MdOutlineDateRange>
-                            <p>10.10.2023</p>
-                          </div>
-
-                          <div className='flex items-center gap-2'>
-                              <p>Quantity : <span>5</span></p>
-                          </div>
-                          
-
-
-                        </div>
-                        <p className="mb-3 font-normal text-gray-700 dark:text-gray-400 mt-2"> This food is very tasty.Its a very Healthy.</p>
-                        <p className='border-b-2 mb-3 mt-3'></p>
-
-                        <div className='flex justify-between items-center'>
-
-                        <div className='flex items-center gap-2'>
-                            
-                            <div className="avatar">
-                                    <div className="w-16 rounded-full">
-                                        <img src="https://i.ibb.co/b66ntNm/istockphoto-1319763895-612x612.jpg" />
-                                    </div>
-                                </div>
-                                <div>
-                                <h2>Sowrav kumar</h2>
-                                 <div className='flex items-center gap-2'>
-                                <GrLocation></GrLocation>
-                                <p>Rajshahi</p>
-                              </div>
-                                </div>
-                            </div>
-
-                            <div className='text-3xl btn btn-ghost text-sky-500'>
-                                <AiOutlineArrowRight></AiOutlineArrowRight>
-                            </div>
-                        </div>
-                        
-                    </div>
-                </div>
-
+                  {
+                    foods?.map(singleFood=><Food key={singleFood._id} singleFood={singleFood}></Food>)
+                 } 
+                    
 
             </div>
+                <div className='flex justify-center items-center mt-10'>
+                <Link to='/availableFoods'>
+                <button type="button" className="text-white btn bg-gradient-to-r from-cyan-400 via-cyan-500 to-cyan-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">See More</button>
+                </Link>
+                </div>
+
         </div>
     );
 };

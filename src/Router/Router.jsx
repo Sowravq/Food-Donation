@@ -24,6 +24,7 @@ import SingUp from "../Pages/SingUp/SingUp";
       {
         path:'/availableFoods',
         element:<AvailableFoods></AvailableFoods>
+        
       },
       {
         path:'/addFood',
