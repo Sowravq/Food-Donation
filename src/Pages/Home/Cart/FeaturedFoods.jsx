@@ -18,7 +18,7 @@ const FeaturedFoods = () => {
     },[])
 
     console.log(foods);
-    
+
     
     return (
         
@@ -35,7 +35,7 @@ const FeaturedFoods = () => {
             <div className="mt-20 max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
 
                   {
-                    foods?.map(singleFood=><Food key={singleFood._id} singleFood={singleFood}></Food>)
+                    foods?.map(singleFood=><Food key={singleFood._id} singleFood={singleFood}  ></Food>)
                  } 
                     
 

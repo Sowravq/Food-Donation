@@ -6,9 +6,13 @@ import Footer from "../sharePage/Footer";
 const Root = () => {
     return (
         <div className="font-Noto-Serif ">
+            <div className="relative ">
             <Navbar></Navbar>
-            <Outlet></Outlet>
+            </div>
+           <div className=" absolute mt-[95px] w-full">
+           <Outlet></Outlet>
             <Footer></Footer>
+           </div>
         </div>
     );
 };
