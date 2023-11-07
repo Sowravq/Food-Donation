@@ -11,6 +11,7 @@ import MyFoodRequest from "../Pages/MyFoodRequest/MyFoodRequest";
 import Login from "../Pages/Login/Login";
 import SingUp from "../Pages/SingUp/SingUp";
 import SingleFood from "../components/SingleFood/SingleFood";
+// import Update from "../components/Update/Update";
    
 
   const router = createBrowserRouter([
@@ -51,7 +52,14 @@ import SingleFood from "../components/SingleFood/SingleFood";
         path:'/singleFood/:id',
         element:<SingleFood></SingleFood>,
         loader:({params})=>fetch(`http://localhost:4000/foods/${params.id}`)
-      }
+      },
+      // {
+      //   path:'/update/:email',
+      //   element:<Update></Update>,
+      //   loader:({params})=>fetch(`http://localhost:4000/foods/${params.email}`)
+      
+      // }
+
     ]
     },
   ]);

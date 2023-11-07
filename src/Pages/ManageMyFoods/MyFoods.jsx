@@ -1,5 +1,7 @@
 /* eslint-disable react/prop-types */
 import Swal from "sweetalert2";
+ 
+import { Link } from "react-router-dom";
 
 
 const MyFoods = ({ food, foods, setFoods }) => {
@@ -31,7 +33,7 @@ const MyFoods = ({ food, foods, setFoods }) => {
                             if (data.deletedCount > 0) {
                                 Swal.fire(
                                     'Deleted!',
-                                    'Your file has been deleted.',
+                                    'Your food has been deleted.',
                                     'success'
                                 )
                                 const deleteFood = foods?.filter(crt => crt._id !== id);
@@ -42,6 +44,9 @@ const MyFoods = ({ food, foods, setFoods }) => {
             })
 
     }
+
+
+    
 
 
     return (
@@ -85,8 +90,10 @@ const MyFoods = ({ food, foods, setFoods }) => {
 
                 </th>
                 <th><button onClick={() => handleDelete(_id)} className="btn btn-outline btn-warning">Delate </button></th>
-                <th><button className="btn btn-outline btn-info">Update </button></th>
-                <th><button className="btn btn-outline btn-success">Manage</button></th>
+               <th><Link> <button className="btn btn-outline btn-info">Update </button> </Link></th>
+               {/* <th><Link to={`/update/${email}`}> <button className="btn btn-outline btn-info">Update </button> </Link></th> */}
+                
+                <th><Link><button className="btn btn-outline btn-success">Manage</button></Link> </th>
             </tr>
 
 

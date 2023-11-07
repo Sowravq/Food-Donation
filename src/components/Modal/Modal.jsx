@@ -1,25 +1,70 @@
 import { useContext } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
+import Swal from "sweetalert2";
 
 
 const Modal = ({singleFood}) => {
     const {information} = useContext(AuthContext);
     const {name,_id,donarImg,email,foodName,photoUrl
         ,location,foodStatus,foodQuantity,expiredDate,additionalNotes} = singleFood;
+
+
+        const handleRequest = (event)=>{
+            event.preventDefault();
+          console.log('kkejl');
+       const form = event.target;
+      const name = information.displayName;
+      const email = information.email;
+      const foodName = form.foodName.value;
+      const photoUrl = form.photoUrl.value;
+      const foodId = form.foodId.value;
+      const location = form.location.value;
+      const expiredDate = form.expiredDate.value;
+      const additionalNotes = form.additionalNotes.value;
+      const donationMoney = form.donationMoney.value;
+      const requestDate = form.requestDate.value;
+      const userEmail = form.userEmail.value;
+      const  requestFood = {name,email,foodName,photoUrl,foodId,location,expiredDate, additionalNotes,donationMoney,requestDate,userEmail};
+      console.log(requestFood);
+
+      fetch('http://localhost:4000/requests',{
+        method:"POST",
+        headers:{
+          "content-type":"application/json"
+        },
+        body:JSON.stringify(requestFood)
+       })
+       .then(res=>res.json())
+       .then(data=>{
+        console.log(data);
+        if(data.insertedId){
+          Swal.fire({
+          icon: "success",
+          title: "success",
+          text: "Food add successful!",
+          footer: '<a href="#">Why do I have this issue?</a>'
+        });
+        }
+        
+       })
+             
+        }
+
+
     return (
         <div>
 
             <button className="btn bg-lime-600  w-full mt-14" onClick={() => document.getElementById('my_modal_3').showModal()}>Request Now</button>
             <dialog id="my_modal_3" className="modal">
                 <div className="modal-box w-11/12 max-w-5xl">
-                    <form method="dialog">
+                    <form  method="dialog">
                         
                         <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
                     </form>
                     <div className=" p-12  " >
             <p className="text-center text-5xl font-bold">Request Now Your Food</p>
 
-             <form className="max-w-4xl mx-auto mt-14">
+             <form onSubmit={handleRequest} className="max-w-4xl mx-auto mt-14">
 
                <div className="flex flex-col lg:flex-row items-center gap-5">
                 <input className="w-full py-2 px-3 shadow-lg bg-red-100" disabled defaultValue={name} type="text" name="name"   id="" />
@@ -31,7 +76,7 @@ const Modal = ({singleFood}) => {
                   <input className="w-full py-2 px-3 shadow-lg bg-red-100" type="text" name="photoUrl" disabled defaultValue={photoUrl} placeholder="Food Image URL" id="" />
                </div>
                <div className="flex flex-col lg:flex-row items-center gap-5 mt-4">
-                <input className="w-full py-2 px-3 shadow-lg bg-red-100" placeholder="foodId" type="text" disabled defaultValue={_id} name="foodQuantity"   id="" />
+                <input className="w-full py-2 px-3 shadow-lg bg-red-100" placeholder="foodId" type="text" disabled defaultValue={_id} name="foodId"   id="" />
                   <input className="w-full py-2 px-3 shadow-lg bg-red-100" type="text" name="location" disabled defaultValue={location} placeholder="Location" id="" />
                </div>
                <div className="flex flex-col lg:flex-row items-center gap-5 mt-4">
