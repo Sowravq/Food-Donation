@@ -1,6 +1,7 @@
 import { MdOutlineDateRange } from 'react-icons/md';
 import { GrLocation } from 'react-icons/gr';
 import { AiOutlineArrowRight } from 'react-icons/ai';
+import { Link } from 'react-router-dom';
 
 const Foods = ({food}) => {
     const {name,_id,donarImg,email,foodName,photoUrl
@@ -53,10 +54,12 @@ const Foods = ({food}) => {
                               </div>
                                 </div>
                             </div>
-
-                            <div className='text-3xl btn btn-ghost text-sky-500'>
+                            
+                            <Link to={`/singleFood/${_id}`}>
+                            <div  className='text-3xl btn btn-ghost text-sky-500'>
                                 <AiOutlineArrowRight></AiOutlineArrowRight>
                             </div>
+                            </Link>
                         </div>
                         
                     </div>
