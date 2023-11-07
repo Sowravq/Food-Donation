@@ -9,7 +9,9 @@ import { FiSearch } from 'react-icons/fi';
 const ManageMyFoods = () => {
     const {information} = useContext(AuthContext);
     const [foods,setFoods] = useState();
+    
     const [search ,setSearch] = useState();
+    
     const url = `http://localhost:4000/foods?email=${information.email}`;
 
     useEffect(()=>{
@@ -18,6 +20,8 @@ const ManageMyFoods = () => {
         .then(data=>{
             setFoods(data)
             setSearch(data)
+            
+            
         })
     },[url])
 
@@ -28,6 +32,7 @@ const ManageMyFoods = () => {
     
      
     return (
+        
         <div className="max-w-7xl mx-auto">
             <p className="text-5xl font-bold text-center mt-16 mb-14">Manege My Food</p>
             <div className="flex justify-center items-center">
@@ -51,7 +56,7 @@ const ManageMyFoods = () => {
     </thead>
     
               {
-                foods?.map(food=><MyFoods key={food._id} food={food}></MyFoods>)
+                foods?.map(food=><MyFoods key={food._id} food={food} foods={foods} setFoods={setFoods}></MyFoods>)
             }
    
     
