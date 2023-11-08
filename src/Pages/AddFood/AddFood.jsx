@@ -53,7 +53,7 @@ const handleAddFood = (event)=>{
              <form onSubmit={handleAddFood} className="max-w-4xl mx-auto mt-14">
 
                <div className="flex flex-col lg:flex-row items-center gap-5">
-                <input className="w-full py-2 px-3 shadow-lg bg-red-100" disabled defaultValue={information.displayName}type="text" name="name"   id="" />
+                <input className="w-full py-2 px-3 shadow-lg bg-red-100" disabled defaultValue={information.displayName} type="text" name="name"   id="" />
                 <input className="w-full py-2 px-3 shadow-lg bg-red-100" type="email" name="email" disabled defaultValue={information.email} id="" />
                 <input className="w-full py-2 px-3 shadow-lg bg-red-100" disabled defaultValue={information.photoURL} type="text" name="donarImg"   id="" />
                  

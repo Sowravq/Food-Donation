@@ -1,5 +1,5 @@
 import { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { AiFillEye, AiFillEyeInvisible } from 'react-icons/ai';
@@ -10,6 +10,7 @@ import auth from "../../config/firebase.config";
 const SingUp = () => {
      const {singUp} = useContext(AuthContext);
      const [show,setShow] = useState(false);
+     const navigate = useNavigate();
      const handleSingUp=(event)=>{
         event.preventDefault()
         const form = event.target ;
@@ -23,23 +24,23 @@ const SingUp = () => {
 
         if(!checkBox){
             return toast.error("Please accept Theme and Condition!", {
-                position: "top-center"
+                position: "bottom-left"
             })
         }
 
         if (password !== confirmPassword) {
             return toast.error("Password do not match!", {
-                position: "top-center"
+                position: "bottom-left"
             })
         }
         if (password.length < 8)
             return toast.error("Type more then 8 characters!", {
-                position: "top-center"
+                position: "bottom-left"
             })
 
         if (! /(?=.*[!@#$%^&*])(?=.*[0-9])(?=.*[A-Z])/.test(password)) {
             return toast.error(" Add at least one special character ,number and one upper case word!", {
-                position: "top-center"
+                position: "bottom-left"
             })
         }
 
@@ -56,13 +57,14 @@ const SingUp = () => {
              console.log(error);
           });
            toast.success("Singup successful!", {
-            position: "top-center"
+            position: "bottom-left"
         })
+        navigate('/login')
         })
         .catch(error=>{
             console.log(error);
             toast.error("Email-already-in-use", {
-                position: "top-center"
+                position: "bottom-left"
             })
         })
 

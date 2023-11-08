@@ -1,13 +1,14 @@
 import { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AiFillEye, AiFillEyeInvisible } from 'react-icons/ai';
-import {BsGithub, BsGoogle } from 'react-icons/bs';
+import { BsGoogle} from 'react-icons/bs';
 import { AuthContext } from "../../Provider/AuthProvider";
 import { ToastContainer, toast } from 'react-toastify';
 const Login = () => {
-    const {logIn} = useContext(AuthContext)
+    const {logIn,google} = useContext(AuthContext)
     const [show,setShow] = useState(false);
-
+    const location = useLocation();
+    const navigate = useNavigate()
     const handleLogin = (event)=>{
         event.preventDefault();
         const form = event.target;
@@ -17,17 +18,38 @@ const Login = () => {
         logIn(email,password)
         .then(result=>{
             console.log( result.user);
-            toast.success("Singup successful!", {
-                position: "top-center"
+            navigate(location?.state? location.state:'/')
+            toast.success("login successful!", {
+                position: "bottom-left"
             })
         })
         .catch(error=>{
             console.log(error);
-            toast.error("Incorrect email and password", {
-                position: "top-center"
+            toast.error("Something went Wrong", {
+                position: "bottom-left"
             })
         })
     }
+
+  const handleGoogle=()=>{
+    google()
+    .then(result=>{
+        console.log(result.user);
+        navigate(location?.state? location.state:'/')
+        toast.success("login successful!", {
+            position: "bottom-left"
+        })
+    })
+    .catch(error=>{
+        console.log(error);
+        toast.error("Something went Wrong", {
+            position: "bottom-left"
+        })
+    })
+  }
+
+    
+
     return (
         <div className=" lg:p-14 flex flex-col lg:flex-row  gap-6" style={{backgroundImage: 'url(https://i.ibb.co/N71JCfM/b9c8f893c9a782033a01f47e0c0b1d6e.jpg)'}}>
         <div className=" ">
@@ -38,18 +60,14 @@ const Login = () => {
                 <div className="p-6 mb-0 text-center bg-white border-b-0 rounded-t-2xl">
                     <h5 className="text-3xl">Login with</h5>
                 </div>
-                <div className="flex flex-wrap px-3 -mx-3 sm:px-6 xl:px-12">
-                    <div className="w-3/12 max-w-full px-1 ml-auto flex-0">
+                <div className="  px-3 -mx-3 sm:px-6 xl:px-12">
+                    <div onClick={handleGoogle} className="  max-w-full px-1 ml-auto flex-0">
                         <a className="inline-block w-full px-6 py-3 mb-4 font-bold text-center    uppercase align-middle transition-all bg-transparent border border-gray-200 border-solid rounded-lg shadow-none cursor-pointer hover:scale-102 leading-pro text-3xl text-cyan-500 ease-soft-in tracking-tight-soft bg-150 bg-x-25 hover:bg-transparent hover:opacity-75">
                             <BsGoogle></BsGoogle>
                         </a>
                     </div>
                    
-                    <div className="w-3/12 max-w-full px-1 mr-auto flex-0">
-                        <a className="inline-block w-full px-6 py-3 mb-4 font-bold text-center   uppercase align-middle transition-all bg-transparent border border-gray-200 border-solid rounded-lg shadow-none cursor-pointer hover:scale-102 leading-pro text-3xl ease-soft-in tracking-tight-soft bg-150 bg-x-25 hover:bg-transparent hover:opacity-75">
-                            <BsGithub></BsGithub>
-                        </a>
-                    </div>
+                  
                     <div className="relative w-full max-w-full px-3 mt-2 text-center shrink-0">
                         <p className="z-20 inline px-4 mb-2 font-semibold leading-normal bg-white text-xl text-slate-400">or</p>
                     </div>

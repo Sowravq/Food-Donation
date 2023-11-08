@@ -93,7 +93,7 @@ const MyFoods = ({ food, foods, setFoods }) => {
                <th><Link> <button className="btn btn-outline btn-info">Update </button> </Link></th>
                {/* <th><Link to={`/update/${email}`}> <button className="btn btn-outline btn-info">Update </button> </Link></th> */}
                 
-                <th><Link><button className="btn btn-outline btn-success">Manage</button></Link> </th>
+                <th><Link to='/manage'><button className="btn btn-outline btn-success">Manage</button></Link> </th>
             </tr>
 
 

@@ -2,6 +2,7 @@ import { useLoaderData } from "react-router-dom";
 import { MdOutlineDateRange } from 'react-icons/md';
 import { GrLocation } from 'react-icons/gr';
 import Modal from "../Modal/Modal";
+import PrivateRoute from "../../PrivateRoute/PrivateRoute";
 
 
 const SingleFood = () => {

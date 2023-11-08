@@ -11,6 +11,7 @@ import MyFoodRequest from "../Pages/MyFoodRequest/MyFoodRequest";
 import Login from "../Pages/Login/Login";
 import SingUp from "../Pages/SingUp/SingUp";
 import SingleFood from "../components/SingleFood/SingleFood";
+import PrivateRoute from "../PrivateRoute/PrivateRoute";
 // import Update from "../components/Update/Update";
    
 
@@ -30,15 +31,15 @@ import SingleFood from "../components/SingleFood/SingleFood";
       },
       {
         path:'/addFood',
-        element:<AddFood></AddFood>
+        element:<PrivateRoute><AddFood></AddFood></PrivateRoute> 
       },
       {
         path:'/manageMyFoods',
-        element:<ManageMyFoods></ManageMyFoods>
+        element:<PrivateRoute><ManageMyFoods></ManageMyFoods></PrivateRoute>
       },
       {
         path:'/myFoodRequest',
-        element:<MyFoodRequest></MyFoodRequest>
+        element:<PrivateRoute><MyFoodRequest></MyFoodRequest></PrivateRoute>
       },
       {
         path:'/login',
@@ -50,7 +51,7 @@ import SingleFood from "../components/SingleFood/SingleFood";
       },
       {
         path:'/singleFood/:id',
-        element:<SingleFood></SingleFood>,
+        element:<PrivateRoute><SingleFood></SingleFood></PrivateRoute>,
         loader:({params})=>fetch(`http://localhost:4000/foods/${params.id}`)
       },
       // {
