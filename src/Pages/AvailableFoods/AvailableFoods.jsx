@@ -23,6 +23,9 @@ const AvailableFoods = () => {
       const result = search?.filter(data=>data.foodName.toLowerCase().includes(value));
        setFood(result)
     }
+
+     
+
     return (
         <div className=" pt-16 md:pt-24 lg:pt-24 pl-4 md:pl-24 lg:pl-24 pr-4 md:pr-24 lg:pr-24" style={{ backgroundImage: 'url(https://i.ibb.co/9nn5R2J/giphy.gif)' }}>
             <div className=""> 

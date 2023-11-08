@@ -5,7 +5,23 @@ import { useLoaderData } from "react-router-dom";
 const Manage = () => {
     const manage  = useLoaderData();
     
-     const {name,userEmail,requestDate,foodId,status} =  manage;
+     const {_id,status, name,userEmail,requestDate,foodId,
+      foodStatus} =  manage;
+
+      const handleManage =(id)=>{
+        console.log(id);
+        fetch(`http://localhost:4000/requests/${id}`, {
+          method:"PATCH",
+          headers:{
+            "content-type":"application/json"
+          },
+          body:JSON.stringify({foodStatus:'Delivered'})
+        })
+        .then(res=>res.json())
+        .then(data=>{
+          console.log(data);
+        })
+      }
     
     return (
         <div>
@@ -32,7 +48,10 @@ const Manage = () => {
                   <td>{userEmail}</td>
                   <td>{requestDate}</td>
                   
-                    <td  className=" btn bg-red-500 mt-7 md:mt-4 lg:mt-4">Conform Now</td>
+                    {
+                     foodStatus == "Delivered"? <td><p className="bg-sky-500 p-2 rounded-full">Delivered</p></td>:
+                      <td onClick={()=>handleManage(foodId)} className=" btn bg-red-500 mt-7 md:mt-4 lg:mt-4">{foodStatus}</td>
+                    }
                 
                 </tr>
                 

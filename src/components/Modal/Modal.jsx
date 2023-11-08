@@ -15,6 +15,7 @@ const Modal = ({singleFood}) => {
       const form = event.target;
       const name = information.displayName;
       const email = information.email;
+      
       const foodName = form.foodName.value;
       const photoUrl = form.photoUrl.value;
       const foodId = form.foodId.value;
@@ -23,8 +24,9 @@ const Modal = ({singleFood}) => {
       const additionalNotes = form.additionalNotes.value;
       const donationMoney = form.donationMoney.value;
       const requestDate = form.requestDate.value;
+      const foodStatus = form.foodStatus.value;
       const userEmail = form.userEmail.value;
-      const  requestFood = {name,email,foodName,photoUrl,foodId,location,expiredDate, additionalNotes,donationMoney,requestDate,userEmail};
+      const  requestFood = {name,email,foodName,photoUrl,foodId,location,expiredDate, additionalNotes,donationMoney,requestDate,userEmail,foodStatus};
       console.log(requestFood);
 
       fetch('http://localhost:4000/requests',{
@@ -87,6 +89,7 @@ const Modal = ({singleFood}) => {
                <div className="flex flex-col lg:flex-row items-center gap-5 mt-4">
                 <input className="w-full py-2 px-3 shadow-lg bg-red-100" disabled defaultValue={information.email} type="email" name="userEmail"   id="" required/>
                 <input className="w-full py-2 px-3 shadow-lg bg-red-100" type="text" name="donationMoney" placeholder="Donate your money....(Optional)" id="" />
+                <input className="w-full py-2 px-3 shadow-lg bg-red-100" type="text" name="foodStatus" defaultValue={foodStatus} disabled placeholder="" id="" />
                  
                </div>
                <div className=" mt-4">

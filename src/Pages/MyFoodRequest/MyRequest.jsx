@@ -5,7 +5,7 @@ import Swal from "sweetalert2";
   
  
  const MyRequest = ({req,request,setRequest}) => {
-    const {_id, expiredDate,requestDate,donationMoney ,name,location } =req;
+    const {_id, expiredDate,requestDate,donationMoney ,name,location,foodStatus } =req;
 
 
     const handleDelete = (id) => {
@@ -65,7 +65,13 @@ import Swal from "sweetalert2";
 
                 </td>
                  <td>{donationMoney}</td>
-                <th><button onClick={() => handleDelete(_id)} className="btn bg-red-500"> Cancel Request </button></th>
+                {
+                 foodStatus =="Delivered"?<th><button disabled onClick={() => handleDelete(_id)} className="btn btn-outline btn-warning"> Cancel Request </button></th>: <th><button onClick={() => handleDelete(_id)} className="btn btn-outline btn-warning"> Cancel Request </button></th>
+                }
+                {
+                    foodStatus =="Delivered"? <th ><p  className="bg-cyan-500 p-2 rounded-full text-white">{foodStatus}</p> </th>:
+                    <th ><p  className="bg-red-500 p-2 rounded-full text-white">{foodStatus}</p> </th>
+                }
               
                 
                 
