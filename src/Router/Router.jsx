@@ -12,6 +12,7 @@ import Login from "../Pages/Login/Login";
 import SingUp from "../Pages/SingUp/SingUp";
 import SingleFood from "../components/SingleFood/SingleFood";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
+import Manage from "../components/Manage/Manage";
 // import Update from "../components/Update/Update";
    
 
@@ -60,6 +61,11 @@ import PrivateRoute from "../PrivateRoute/PrivateRoute";
       //   loader:({params})=>fetch(`http://localhost:4000/foods/${params.email}`)
       
       // }
+      {
+        path:'/manage/:foodId',
+        element:<Manage></Manage>,
+        loader:({params})=>fetch(`http://localhost:4000/requests/${params.foodId}`)
+      }
 
     ]
     },
