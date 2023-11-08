@@ -12,7 +12,7 @@ const Modal = ({singleFood}) => {
         const handleRequest = (event)=>{
             event.preventDefault();
           console.log('kkejl');
-       const form = event.target;
+      const form = event.target;
       const name = information.displayName;
       const email = information.email;
       const foodName = form.foodName.value;
@@ -73,7 +73,7 @@ const Modal = ({singleFood}) => {
                </div>
                <div className="flex flex-col lg:flex-row items-center gap-5 mt-4">
                 <input className="w-full py-2 px-3 shadow-lg bg-red-100" placeholder="Food Name" type="text" disabled defaultValue={foodName} name="foodName"   id="" />
-                  <input className="w-full py-2 px-3 shadow-lg bg-red-100" type="text" name="photoUrl" disabled defaultValue={photoUrl} placeholder="Food Image URL" id="" />
+                  <input className="w-full py-2 px-3 shadow-lg bg-red-100" type="text" name="photoUrl" disabled defaultValue={photoUrl} placeholder="" id="" />
                </div>
                <div className="flex flex-col lg:flex-row items-center gap-5 mt-4">
                 <input className="w-full py-2 px-3 shadow-lg bg-red-100" placeholder="foodId" type="text" disabled defaultValue={_id} name="foodId"   id="" />

@@ -13,7 +13,8 @@ import SingUp from "../Pages/SingUp/SingUp";
 import SingleFood from "../components/SingleFood/SingleFood";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import Manage from "../components/Manage/Manage";
-// import Update from "../components/Update/Update";
+import Update from "../components/Update/Update";
+ 
    
 
   const router = createBrowserRouter([
@@ -55,12 +56,12 @@ import Manage from "../components/Manage/Manage";
         element:<PrivateRoute><SingleFood></SingleFood></PrivateRoute>,
         loader:({params})=>fetch(`http://localhost:4000/foods/${params.id}`)
       },
-      // {
-      //   path:'/update/:email',
-      //   element:<Update></Update>,
-      //   loader:({params})=>fetch(`http://localhost:4000/foods/${params.email}`)
+      {
+        path:'/update/:id',
+      element:<Update></Update>,
+        loader:({params})=>fetch(`http://localhost:4000/foods/${params.id}`)
       
-      // }
+      },
       {
         path:'/manage/:foodId',
         element:<Manage></Manage>,

@@ -89,9 +89,9 @@ const MyFoods = ({ food, foods, setFoods }) => {
                     <p>{foodQuantity}</p>
 
                 </th>
-                <th><button onClick={() => handleDelete(email)} className="btn btn-outline btn-warning">Delate </button></th>
-               <th><Link> <button className="btn btn-outline btn-info">Update </button> </Link></th>
-               {/* <th><Link to={`/update/${email}`}> <button className="btn btn-outline btn-info">Update </button> </Link></th> */}
+                <th><button onClick={() => handleDelete(_id)} className="btn btn-outline btn-warning">Delate </button></th>
+               
+               <th><Link to={`/update/${_id}`}> <button className="btn btn-outline btn-info">Update </button> </Link></th>
                 
                 <th><Link to={`/manage/${_id}`}><button className="btn btn-outline btn-success">Manage</button></Link> </th>
             </tr>

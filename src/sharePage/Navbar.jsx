@@ -29,7 +29,7 @@ const Navbar = () => {
         {
             information? <div className="dropdown dropdown-bottom dropdown-end">
             <label tabIndex={0} className="  rounded-full">  <img className="w-16 rounded-full " src={information.photoURL} /></label>
-            <ul tabIndex={0} className="dropdown-content z-[1] menu p-2 shadow bg-slate-400 rounded-box w-52">
+            <ul tabIndex={0} className="dropdown-content z-[1] menu p-2 shadow  bg-slate-400 rounded-box w-52">
               <li><a>{information.displayName}</a></li>
               <li><a>{information.email}</a></li>
               <li><a onClick={handleLogout}>Logout</a></li>
@@ -53,7 +53,7 @@ const Navbar = () => {
 
     return (
         <div className="fixed z-50 w-full">
-            <div className="navbar bg-slate-400 rounded-t-md text-white">
+            <div className="navbar  bg-white rounded-t-md text-black">
                 <div className="navbar-start">
                     <div className="dropdown">
                         <label tabIndex={0} className="btn btn-ghost lg:hidden">
