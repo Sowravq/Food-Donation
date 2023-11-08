@@ -10,7 +10,7 @@ const Update = () => {
     const {information} = useContext(AuthContext);
       const foods = useLoaderData();
       console.log(foods);
-     const { name, _id, donarImg, email, foodName, photoUrl
+     const { _id, foodName, photoUrl
         , location, foodStatus, foodQuantity, expiredDate, additionalNotes } = foods;
        
         

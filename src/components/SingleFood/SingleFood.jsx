@@ -2,14 +2,14 @@ import { useLoaderData } from "react-router-dom";
 import { MdOutlineDateRange } from 'react-icons/md';
 import { GrLocation } from 'react-icons/gr';
 import Modal from "../Modal/Modal";
-import PrivateRoute from "../../PrivateRoute/PrivateRoute";
+ 
 
 
 const SingleFood = () => {
     const singleFood = useLoaderData();
     console.log(singleFood);
-    const {name,_id,donarImg,email,foodName,photoUrl
-        ,location,foodStatus,foodQuantity,expiredDate,additionalNotes} = singleFood;
+    const {name,foodName,photoUrl
+        ,location, foodQuantity,expiredDate} = singleFood;
     return (
         <div className="bg-slate-500   px-6 md:px-10 lg:px-16 py-20">
             <div className="bg-white flex flex-col lg:flex-row gap-10">

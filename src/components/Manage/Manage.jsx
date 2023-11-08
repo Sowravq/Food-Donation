@@ -5,7 +5,7 @@ import { useLoaderData } from "react-router-dom";
 const Manage = () => {
     const manage  = useLoaderData();
     
-     const {_id,status, name,userEmail,requestDate,foodId,
+     const {name,userEmail,requestDate,foodId,
       foodStatus} =  manage;
 
       const handleManage =(id)=>{

@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 
 const MyFoods = ({ food, foods, setFoods }) => {
     const { name, _id, donarImg, email, foodName, photoUrl
-        , location, foodStatus, foodQuantity, expiredDate, additionalNotes } = food;
+        , location, foodQuantity, expiredDate,  } = food;
 
 
     const handleDelete = (id) => {

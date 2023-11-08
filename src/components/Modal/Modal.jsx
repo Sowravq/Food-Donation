@@ -1,12 +1,12 @@
 import { useContext } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 import Swal from "sweetalert2";
-
+import PropTypes from 'prop-types';
 
 const Modal = ({singleFood}) => {
     const {information} = useContext(AuthContext);
-    const {name,_id,donarImg,email,foodName,photoUrl
-        ,location,foodStatus,foodQuantity,expiredDate,additionalNotes} = singleFood;
+    const {name,_id, email,foodName,photoUrl
+        ,location,foodStatus, expiredDate} = singleFood;
 
 
         const handleRequest = (event)=>{
@@ -109,3 +109,6 @@ const Modal = ({singleFood}) => {
 };
 
 export default Modal;
+Modal.propTypes={
+  singleFood:PropTypes.object
+}
