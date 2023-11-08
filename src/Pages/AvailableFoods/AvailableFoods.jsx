@@ -9,7 +9,7 @@ const AvailableFoods = () => {
     const [food ,setFood] = useState()
     const [search,setSearch] = useState();
     useEffect(()=>{
-        fetch('http://localhost:4000/foods')
+        fetch('https://food-donation-and-collect-server.vercel.app/foods')
         .then(res=>res.json())
         .then(data=>{
             const sortBy = data?.sort((a,b)=>new Date(b.expiredDate) - new Date(a.expiredDate));

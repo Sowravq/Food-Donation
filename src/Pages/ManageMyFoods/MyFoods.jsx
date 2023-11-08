@@ -24,7 +24,7 @@ const MyFoods = ({ food, foods, setFoods }) => {
             .then(result => {
                 if (result.isConfirmed) {
 
-                    fetch(`http://localhost:4000/foods/${id}`, {
+                    fetch(`https://food-donation-and-collect-server.vercel.app/foods/${id}`, {
                         method: "DELETE"
                     })
                         .then(res => res.json())

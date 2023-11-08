@@ -32,7 +32,7 @@ const Update = () => {
              console.log(foodDetails);
         
         
-             fetch(`http://localhost:4000/foods/${_id}`,{
+             fetch(`https://food-donation-and-collect-server.vercel.app/foods/${_id}`,{
               method:"PUT",
               headers:{
                 "content-type":"application/json"

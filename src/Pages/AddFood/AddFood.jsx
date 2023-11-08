@@ -24,7 +24,7 @@ const handleAddFood = (event)=>{
      console.log(foodDetails);
 
 
-     fetch('http://localhost:4000/foods',{
+     fetch('https://food-donation-and-collect-server.vercel.app/foods',{
       method:"POST",
       headers:{
         "content-type":"application/json"

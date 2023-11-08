@@ -29,7 +29,7 @@ const Modal = ({singleFood}) => {
       const  requestFood = {name,email,foodName,photoUrl,foodId,location,expiredDate, additionalNotes,donationMoney,requestDate,userEmail,foodStatus};
       console.log(requestFood);
 
-      fetch('http://localhost:4000/requests',{
+      fetch('https://food-donation-and-collect-server.vercel.app/requests',{
         method:"POST",
         headers:{
           "content-type":"application/json"

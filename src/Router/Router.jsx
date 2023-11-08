@@ -54,18 +54,18 @@ import Update from "../components/Update/Update";
       {
         path:'/singleFood/:id',
         element:<PrivateRoute><SingleFood></SingleFood></PrivateRoute>,
-        loader:({params})=>fetch(`http://localhost:4000/foods/${params.id}`)
+        loader:({params})=>fetch(`https://food-donation-and-collect-server.vercel.app/foods/${params.id}`)
       },
       {
         path:'/update/:id',
       element:<Update></Update>,
-        loader:({params})=>fetch(`http://localhost:4000/foods/${params.id}`)
+        loader:({params})=>fetch(`https://food-donation-and-collect-server.vercel.app/foods/${params.id}`)
       
       },
       {
         path:'/manage/:foodId',
         element:<Manage></Manage>,
-        loader:({params})=>fetch(`http://localhost:4000/requests/${params.foodId}`)
+        loader:({params})=>fetch(`https://food-donation-and-collect-server.vercel.app/requests/${params.foodId}`)
       }
 
     ]

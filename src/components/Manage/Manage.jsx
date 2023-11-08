@@ -10,7 +10,7 @@ const Manage = () => {
 
       const handleManage =(id)=>{
         console.log(id);
-        fetch(`http://localhost:4000/requests/${id}`, {
+        fetch(`https://food-donation-and-collect-server.vercel.app/requests/${id}`, {
           method:"PATCH",
           headers:{
             "content-type":"application/json"

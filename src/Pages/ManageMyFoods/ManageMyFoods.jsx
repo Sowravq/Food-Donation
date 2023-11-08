@@ -12,7 +12,7 @@ const ManageMyFoods = () => {
     
     const [search ,setSearch] = useState();
     
-    const url = `http://localhost:4000/foods?email=${information.email}`;
+    const url = `https://food-donation-and-collect-server.vercel.app/foods?email=${information.email}`;
 
     useEffect(()=>{
         fetch(url)

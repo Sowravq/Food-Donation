@@ -8,7 +8,7 @@ const FeaturedFoods = () => {
     const[foods,setFoods] = useState();
    
     useEffect(()=>{
-        fetch('http://localhost:4000/foods')
+        fetch('https://food-donation-and-collect-server.vercel.app/foods')
         .then(res=>res.json())
         .then(data=>{
             const sortby = data?.sort((a,b)=>b.foodQuantity - a.foodQuantity);

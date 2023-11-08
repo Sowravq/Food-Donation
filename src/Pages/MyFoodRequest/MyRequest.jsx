@@ -23,7 +23,7 @@ import Swal from "sweetalert2";
             .then(result => {
                 if (result.isConfirmed) {
 
-                    fetch(`http://localhost:4000/requests/${id}`, {
+                    fetch(`https://food-donation-and-collect-server.vercel.app/requests/${id}`, {
                         method: "DELETE"
                     })
                         .then(res => res.json())
