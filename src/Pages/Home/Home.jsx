@@ -1,3 +1,4 @@
+ import DonateFood from "../../components/DonateFood/DonateFood";
 import Banner from "./Banar/Banner";
 import HowItWork from "./Banar/HowItWork/HowItWork";
 import FeaturedFoods from "./Cart/FeaturedFoods";
@@ -8,7 +9,8 @@ const Home = () => {
         <div>
            <Banner></Banner>
            <FeaturedFoods></FeaturedFoods>
-           <HowItWork></HowItWork>
+            <HowItWork></HowItWork>
+            <DonateFood></DonateFood>
            <OurApp></OurApp>
         </div>
     );

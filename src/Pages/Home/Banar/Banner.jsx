@@ -1,4 +1,4 @@
-import Slider from "./Slider";
+ import Slider from "./Slider";
 
  
 
@@ -10,6 +10,7 @@ import Slider from "./Slider";
 
         
         <div className="">
+           
            <div className=" lg:py-6 "  style={{backgroundImage: 'url(https://i.ibb.co/zR3D4RC/41-B-yjbee-IL-AC-UF894-1000-QL80.jpg)'}}>
          
          <div className="grid lg:grid-cols-2 gap-4 lg:gap-8 xl:gap-20 ">
